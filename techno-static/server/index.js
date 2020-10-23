@@ -71,6 +71,9 @@ io.on('connection', (socket) => {
             socketIds[socket.id] = data;
             socket.join(data);
         }
+        else if(rooms[data].limit==2){
+            console.log('Room is full. Select another room');
+        }
     });
 
 	socket.on("disconnect", () => {
